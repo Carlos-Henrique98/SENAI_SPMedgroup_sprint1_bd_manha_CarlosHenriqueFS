@@ -101,6 +101,10 @@ INSERT INTO T_ADM VALUES(2)
 INSERT INTO T_ADM VALUES(3)
 INSERT INTO T_ADM VALUES(4)
 
+SELECT COUNT(IdMedico) AS "QtdMedicos"
+FROM T_Medico M INNER JOIN T_Especialidade E ON M.IdEspecialidade = E.IdEspecialidade
+WHERE NomeEspecialidade = 'Cardiologista';
+
 
 SELECT * FROM T_Clinica;
 SELECT * FROM T_Especialidade;

@@ -33,7 +33,7 @@ CREATE TABLE T_Usuario(
 	Email VARCHAR(20) NOT NULL,
 	Senha VARCHAR(12) NOT NULL,
 	NascimentoUsuario DATE NOT NULL,
-	IdTipoUsuario INT FOREIGN KEY REFERENCES T_TipoUsuario(IdTipoUsuario) NOT NULL
+	IdTipoUsuario INT FOREIGN KEY REFERENCES T_TipoUsuario(IdTipoUsuario)
 );
 GO
 
@@ -57,7 +57,7 @@ CREATE TABLE T_Paciente(
 	DataNascimento DATE NOT NULL,
 	GeneroP VARCHAR(20) NOT NULL,
 	TelefoneP VARCHAR(12) NOT NULL,
-	IdUsuario INT FOREIGN KEY REFERENCES T_Usuario (IdUsuario)NOT NULL
+	IdUsuario INT FOREIGN KEY REFERENCES T_Usuario (IdUsuario)
 );
 GO
 
@@ -70,9 +70,9 @@ GO
 CREATE TABLE T_Consulta(
 	IdConsulta INT PRIMARY KEY IDENTITY,
 	DataConsulta DATE NOT NULL,
-	IdMedico INT FOREIGN KEY REFERENCES T_Medico (IdMedico) NOT NULL,
-	IdPaciente INT FOREIGN KEY REFERENCES T_Paciente(IdPaciente) NOT NULL,
-	IdSituacao INT FOREIGN KEY REFERENCES T_Situacao(IdSituacao) NOT NULL
+	IdMedico INT FOREIGN KEY REFERENCES T_Medico (IdMedico),
+	IdPaciente INT FOREIGN KEY REFERENCES T_Paciente(IdPaciente),
+	IdSituacao INT FOREIGN KEY REFERENCES T_Situacao(IdSituacao) 
 );
 GO
 
