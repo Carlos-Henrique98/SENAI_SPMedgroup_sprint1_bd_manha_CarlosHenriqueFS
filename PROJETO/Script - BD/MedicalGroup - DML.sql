@@ -101,9 +101,18 @@ INSERT INTO T_ADM VALUES(2)
 INSERT INTO T_ADM VALUES(3)
 INSERT INTO T_ADM VALUES(4)
 
+/*Criar uma função para retornar a quantidade de médicos*/
 SELECT COUNT(IdMedico) AS "QtdMedicos"
 FROM T_Medico M INNER JOIN T_Especialidade E ON M.IdEspecialidade = E.IdEspecialidade
 WHERE NomeEspecialidade = 'Cardiologista';
+
+/*Criou uma função para que retorne à idade do usuário a partir de uma determinada stored procedure*/
+CREATE PROCEDURE P_Usuario
+AS
+SELECT DATEDIFF(YEAR,NascimentoUsuario, GETDATE()) AS "Idade"
+FROM T_Usuario
+
+EXEC P_Usuario 
 
 
 SELECT * FROM T_Clinica;
