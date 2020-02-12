@@ -62,13 +62,11 @@ INSERT INTO T_Medico VALUES('Ricardo Lemos','049686321','Feminino',4,4,4)
 GO
 
 
-
-
 /*			TABELA PACIENTE						*/
 
 INSERT INTO T_Paciente VALUES('Mariano','023490126','25698585411','Rua das Pitangas','20000312','Masculino','112314-9656',1)
-INSERT INTO T_Paciente VALUES('Alexandre','093287424','32429889903','Rua dos Velhinhos','19990812','Feminino','112314-9656',2)
-INSERT INTO T_Paciente VALUES('Fernando','218932324','48090356889','Rua dos Marajas','19980314','Feminino','112314-9656',3)
+INSERT INTO T_Paciente VALUES('Alexandre','093287424','32429889903','Rua dos Velhinhos','19990812','Masculino','112314-9656',2)
+INSERT INTO T_Paciente VALUES('Fernanda','218932324','48090356889','Rua dos Marajas','19980314','Feminino','112314-9656',3)
 INSERT INTO T_Paciente VALUES('Henrique','987435876','32498745688','Rua Morcegos Dourados','20010911','Masculino','112314-9656',4)
 GO
 
@@ -105,15 +103,16 @@ INSERT INTO T_ADM VALUES(4)
 
 
 SELECT * FROM T_Clinica;
-/**/
-SELECT * FROM T_Medico;
 SELECT * FROM T_Especialidade;
 SELECT * FROM T_Paciente;
 SELECT * FROM  T_TipoUsuario;
 SELECT * FROM T_Usuario;
-/**/
-SELECT * FROM T_Consulta;
 SELECT * FROM T_ADM;
 SELECT * FROM T_Situacao;
+
+/**/
+SELECT * FROM T_Consulta;
+/**/
+SELECT * FROM T_Medico;
 
 TRUNCATE TABLE T_Consulta;

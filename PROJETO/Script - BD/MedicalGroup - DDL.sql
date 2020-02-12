@@ -16,13 +16,14 @@ GO
 
 CREATE TABLE T_Especialidade(
 	IdEspecialidade INT PRIMARY KEY IDENTITY,
-	NomeEspecialidade VARCHAR(255) NOT NULL UNIQUE,
+	NomeEspecialidade VARCHAR(255) NOT NULL,
 );
 GO
 
+/*DUVIDA*/
 CREATE TABLE T_TipoUsuario(
 	IdTipoUsuario INT PRIMARY KEY IDENTITY,
-	TipoUsuario VARCHAR(255) NOT NULL UNIQUE
+	TipoUsuario VARCHAR(255) NOT NULL
 );
 GO
 
@@ -31,14 +32,15 @@ CREATE TABLE T_Usuario(
 	NomeUsuario VARCHAR(255) NOT NULL UNIQUE,
 	Email VARCHAR(20) NOT NULL,
 	Senha VARCHAR(12) NOT NULL,
+	NascimentoUsuario DATE NOT NULL,
 	IdTipoUsuario INT FOREIGN KEY REFERENCES T_TipoUsuario(IdTipoUsuario) NOT NULL
 );
 GO
 
 CREATE TABLE T_Medico(
 	IdMedico INT PRIMARY KEY IDENTITY,
-	NomeMedico VARCHAR(255) NOT NULL UNIQUE,
-	CRM CHAR(9) NOT NULL UNIQUE,
+	NomeMedico VARCHAR(255) NOT NULL,
+	CRM CHAR(9) NOT NULL,
 	Genero VARCHAR(20) NOT NULL,
 	IdClinica INT FOREIGN KEY REFERENCES T_Clinica(IdClinica),
 	IdEspecialidade INT FOREIGN KEY REFERENCES T_Especialidade(IdEspecialidade),
@@ -49,19 +51,28 @@ GO
 CREATE TABLE T_Paciente(
 	IdPaciente INT PRIMARY KEY IDENTITY,
 	NomePaciente VARCHAR(255) NOT NULL UNIQUE,
+	RG VARCHAR(9) NOT NULL UNIQUE,
+	CPF VARCHAR(11) NOT NULL UNIQUE,
 	Endereco VARCHAR(255) NOT NULL,
+	DataNascimento DATE NOT NULL,
 	GeneroP VARCHAR(20) NOT NULL,
 	TelefoneP VARCHAR(12) NOT NULL,
 	IdUsuario INT FOREIGN KEY REFERENCES T_Usuario (IdUsuario)NOT NULL
 );
 GO
 
+CREATE TABLE T_Situacao(
+	IdSituacao INT PRIMARY KEY IDENTITY,
+	Situacao VARCHAR(20) NOT NULL
+);
+GO
+
 CREATE TABLE T_Consulta(
 	IdConsulta INT PRIMARY KEY IDENTITY,
-	Situacao VARCHAR(255) NOT NULL UNIQUE,
-	DataConsulta DATETIME,
+	DataConsulta DATE NOT NULL,
 	IdMedico INT FOREIGN KEY REFERENCES T_Medico (IdMedico) NOT NULL,
-	IdPaciente INT FOREIGN KEY REFERENCES T_Paciente(IdPaciente) NOT NULL
+	IdPaciente INT FOREIGN KEY REFERENCES T_Paciente(IdPaciente) NOT NULL,
+	IdSituacao INT FOREIGN KEY REFERENCES T_Situacao(IdSituacao) NOT NULL
 );
 GO
 
@@ -69,6 +80,7 @@ CREATE TABLE T_ADM(
 	IdADM INT PRIMARY KEY IDENTITY,
 	IdUsuario INT FOREIGN KEY REFERENCES T_Usuario(IdUsuario)
 );
+GO
 
 SELECT * FROM T_Clinica;
 SELECT * FROM T_Medico;
@@ -78,13 +90,38 @@ SELECT * FROM  T_TipoUsuario;
 SELECT * FROM T_Usuario;
 SELECT * FROM T_Consulta;
 SELECT * FROM T_ADM;
+SELECT * FROM T_Situacao;
 
-DROP TABLE T_Clinica;
-DROP TABLE T_Medico;
-DROP TABLE T_Especialidade;
-DROP TABLE T_Paciente;
-DROP TABLE T_TipoUsuario;
-DROP TABLE T_Usuario;
+
+
+
+
+
+--1º
 DROP TABLE T_Consulta;
+GO
+--2º
 DROP TABLE T_ADM;
+GO
+--3º
+DROP TABLE T_Paciente;
+GO
+--4º
+DROP TABLE T_Medico;
+GO
+--5º
+DROP TABLE T_Clinica;
+GO
+--6º
+DROP TABLE T_Especialidade;
+GO
+--7º
+DROP TABLE T_Usuario;
+GO
+--8º
+DROP TABLE T_TipoUsuario;
+GO
 
+--9
+DROP TABLE T_Situacao
+GO
