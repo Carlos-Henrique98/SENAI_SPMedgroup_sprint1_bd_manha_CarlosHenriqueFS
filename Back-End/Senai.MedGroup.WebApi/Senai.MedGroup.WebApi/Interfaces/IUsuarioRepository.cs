@@ -15,5 +15,7 @@ namespace Senai.MedGroup.WebApi.Interface
         void Cadastrar(TUsuario novoUsuario);
 
         void Deletar(int id);
+
+        void Atualizar(int id, TUsuario usuarioNovo);
     }
 }

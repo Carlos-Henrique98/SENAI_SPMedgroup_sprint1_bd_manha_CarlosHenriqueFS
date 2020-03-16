@@ -49,6 +49,14 @@ namespace Senai.MedGroup.WebApi.Controller
             return StatusCode(201);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, TUsuario UsuarioAtualizado)
+        {
+            _usuarioRepository.Atualizar(id, UsuarioAtualizado);
+
+            return StatusCode(204);
+        }
+
             
             
     }
