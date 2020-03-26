@@ -1,0 +1,20 @@
+USE SPMedGROUP_Manha;
+
+INSERT INTO Clinica VALUES ();
+
+INSERT INTO AreaClinica VALUES ();
+
+INSERT INTO Cidade VALUES ();
+
+INSERT INTO Estado VALUES ();
+
+INSERT INTO Medico VALUES ();
+
+INSERT INTO Consulta VALUES ();
+
+INSERT INTO Usuario VALUES ();
+
+INSERT INTO PerfilUsuario VALUES ();
+
+INSERT INTO Prontuario VALUES ();
+
